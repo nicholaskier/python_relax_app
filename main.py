@@ -13,6 +13,8 @@ class LoginScreen(Screen):
 class RootWidget(ScreenManager):
     pass
 
+class SignUpScreenSuccess(Screen):
+    pass
 
 class SignUpScreen(Screen):
     def add_user(self, uname, pword):
@@ -22,6 +24,7 @@ class SignUpScreen(Screen):
             'created': datetime.now().strftime("%Y-%m-%d %H-%M-%S")}
         with open("users.json", 'w') as file:
             json.dump(users, file)
+        self.manager.current = "sign_up_screen_success"
 
 class MainApp(App):
     def build(self):
