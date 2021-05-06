@@ -4,7 +4,9 @@ from kivy.uix.screenmanager import ScreenManager, Screen
 import json, glob, random
 from datetime import datetime
 from pathlib import Path
-
+from hoverable import HoverBehavior
+from kivy.uix.image import Image
+from kivy.uix.behaviors import ButtonBehavior
 
 Builder.load_file('design.kv')
 
@@ -38,6 +40,8 @@ class LoginScreenSuccess(Screen):
         else:
             self.ids.quote.text = "Try having more valid feelings"
 
+class ImageButton(ButtonBehavior, HoverBehavior, Image):
+    pass
 
 class SignUpScreenSuccess(Screen):
     def go_to_login(self):
